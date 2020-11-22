@@ -1,15 +1,15 @@
-broncos jets
-saints lions
-buccaneers chargers
-bengals jaguars
-vikings texans
-seahawks dolphins
-browns cowboys
-panthers cardinals
-ravens washington
-rams giants
-bills raiders
-colts bears
-eagles 49ers
-chiefs patriots
-packers falcons
+broncos jets 9
+saints lions 6
+buccaneers chargers 7
+bengals jaguars 8
+vikings texans 8
+seahawks dolphins 8
+browns cowboys 11
+panthers cardinals 10
+ravens washington 14
+rams giants 8
+bills raiders 7
+colts bears 8
+eagles 49ers 5
+chiefs patriots 16
+packers falcons 14

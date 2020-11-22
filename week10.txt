@@ -1,14 +1,14 @@
-colts titans
-browns texans
-lions washington
-buccaneers panthers
-giants eagles
-packers jaguars
-cardinals bills
-dolphins chargers
-raiders broncos
-rams seahawks
-steelers bengals
-saints 49ers
-patriots ravens
-vikings bears
+colts titans 17
+browns texans 3
+lions washington 3
+buccaneers panthers 23
+giants eagles 10
+packers jaguars 4
+cardinals bills 2
+dolphins chargers 8
+raiders broncos 25
+rams seahawks 7
+steelers bengals 26
+saints 49ers 14
+patriots ravens 6
+vikings bears 6

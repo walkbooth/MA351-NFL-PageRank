@@ -1,16 +1,16 @@
-chiefs texans
-bills jets
-packers vikings
-washington eagles
-ravens browns
-jaguars colts
-bears lions
-seahawks falcons
-patriots dolphins
-raiders panthers
-chargers bengals
-saints buccaneers
-cardinals 49ers
-rams cowboys
-steelers giants
-titans broncos
+chiefs texans 14
+bills jets 10
+packers vikings 9
+washington eagles 10
+ravens browns 32
+jaguars colts 7
+bears lions 4
+seahawks falcons 13
+patriots dolphins 10
+raiders panthers 4
+chargers bengals 3
+saints buccaneers 11
+cardinals 49ers 4
+rams cowboys 3
+steelers giants 10
+titans broncos 2

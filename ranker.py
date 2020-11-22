@@ -78,8 +78,8 @@ def load_new_outcomes(matrix, week: int):
     """
     with open(f"week{week}.txt") as stream:
         for line in stream:
-            victor, loser = line.split()
-            matrix[loser][victor] += 1
+            victor, loser, point_differential = line.split()
+            matrix[loser][victor] += int(point_differential)
 
     return matrix
 
@@ -99,7 +99,7 @@ def load_matchups(week: int):
     Returns: matchups as a list of tuples
     """
     with open(f"week{week}.txt") as stream:
-        return [line.split() for line in stream]
+        return [line.split()[:2] for line in stream]
 
 
 def get_numeric_matrix(matrix):
@@ -110,7 +110,7 @@ def markovify(matrix):
     for i, row in enumerate(matrix):
         if np.sum(row) == 0:
             matrix[i] = 1.0 / row.size
-        elif np.sum(row) != 1:
+        else:
             matrix[i] = row / float(np.sum(row))
 
     return matrix
@@ -214,7 +214,7 @@ def report(weekly_rankings, weekly_accuracy):
         for team in division_teams:
             plt.plot("week", team, data=weekly_rankings, label=team)
         plt.legend()
-        plt.savefig(f"first_iteration/{division}")
+        plt.savefig(f"second_iteration/{division}")
 
 
 def relaxation_tuning():
@@ -251,7 +251,7 @@ def relaxation_tuning():
     plt.xlabel("Relaxation Values")
     plt.ylabel("Accuracy")
     plt.plot(relaxation_values, all_accuracies)
-    plt.savefig(f"first_iteration/relaxation_tuning.png")
+    plt.savefig(f"second_iteration/relaxation_tuning.png")
 
     print("\nRelaxation tuning results: ")
     print(f"\tOptimal value for relaxation parameter: {best_relaxation}")

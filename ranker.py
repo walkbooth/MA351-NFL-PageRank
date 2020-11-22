@@ -63,7 +63,7 @@ def build_matchup_matrix():
     return matrix
 
 
-def load_new_outcomes(matrix, week: int):
+def load_new_outcomes(matrix, week: int, rankings: list):
     """
     Loads team records from a team records file for a given week, storing results in the matchup
     matrix.
@@ -79,7 +79,9 @@ def load_new_outcomes(matrix, week: int):
     with open(f"week{week}.txt") as stream:
         for line in stream:
             victor, loser, point_differential = line.split()
-            matrix[loser][victor] += int(point_differential)
+            matrix[loser][victor] += (
+                int(point_differential) if int(point_differential) > 7 else 1
+            )
 
     return matrix
 
@@ -157,8 +159,11 @@ def nfl_pagerank(relaxation=0.1):
     # has to that team.
     matchup_matrix = build_matchup_matrix()
 
+    # Initialize rankings value (rankings for a given week). Will be updated in-loop
+    rankings = None
+
     for week in weeks:
-        matchup_matrix = load_new_outcomes(matchup_matrix, week)
+        matchup_matrix = load_new_outcomes(matchup_matrix, week, rankings)
         numeric_matrix = get_numeric_matrix(matchup_matrix)
         markov_matrix = markovify(numeric_matrix)
         pagerank_matrix = pagerankify(markov_matrix, relaxation=relaxation)
@@ -214,7 +219,7 @@ def report(weekly_rankings, weekly_accuracy):
         for team in division_teams:
             plt.plot("week", team, data=weekly_rankings, label=team)
         plt.legend()
-        plt.savefig(f"second_iteration/{division}")
+        plt.savefig(f"third_iteration/{division}")
 
 
 def relaxation_tuning():
@@ -251,7 +256,7 @@ def relaxation_tuning():
     plt.xlabel("Relaxation Values")
     plt.ylabel("Accuracy")
     plt.plot(relaxation_values, all_accuracies)
-    plt.savefig(f"second_iteration/relaxation_tuning.png")
+    plt.savefig(f"third_iteration/relaxation_tuning.png")
 
     print("\nRelaxation tuning results: ")
     print(f"\tOptimal value for relaxation parameter: {best_relaxation}")
